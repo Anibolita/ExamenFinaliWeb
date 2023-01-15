@@ -37,8 +37,8 @@ export default {
       this.nombreUsuario = nombre.substring(0, indice);
     }
     var parametro = this.$route.params.id;
-    axios.get("https://2kl0wm.deta.dev/appVivienda/vivienda", { params: { id: parametro } }).then(response => this.vivienda = response.data);
-    axios.get("https://2kl0wm.deta.dev/appReservas/reservas/viviendasAsociada/" + parametro).then(res => this.reservas = res.data);
+    axios.get("https://o24sdy.deta.dev/appVivienda/vivienda", { params: { id: parametro } }).then(response => this.vivienda = response.data);
+    axios.get("https://o24sdy.deta.dev/appReservas/reservas/viviendasAsociada/" + parametro).then(res => this.reservas = res.data);
   },
   methods: {
     comentar() {
@@ -153,8 +153,8 @@ export default {
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             this.paidFor = true;
-            axios.post("https://2kl0wm.deta.dev/appReservas/reservas", this.reservaObjeto).then((result) => { console.log(result.data); });
-            axios.get("https://2kl0wm.deta.dev/appReservas/reservas/viviendasAsociada/" + this.vivienda._id).then(res => this.reservas = res.data);
+            axios.post("https://o24sdy.deta.dev/appReservas/reservas", this.reservaObjeto).then((result) => { console.log(result.data); });
+            axios.get("https://o24sdy.deta.dev/appReservas/reservas/viviendasAsociada/" + this.vivienda._id).then(res => this.reservas = res.data);
             console.log(order);
           },
           onError: err => {

@@ -18,7 +18,7 @@ export default{
 
     <div class="logo">
       <h2 class="logo-nombre">
-        <router-link to="/"> The Good House </router-link>
+        <router-link to="/"> Examen Final </router-link>
       </h2>
     </div>
 

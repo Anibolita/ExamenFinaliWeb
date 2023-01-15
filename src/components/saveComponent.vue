@@ -34,7 +34,7 @@ export default {
                 "comentarios" : []
             };
 
-            axios.post("https://2kl0wm.deta.dev/appVivienda/viviendas", objeto).then((result) => {
+            axios.post("https://o24sdy.deta.dev/appVivienda/viviendas", objeto).then((result) => {
             this.id = result.data;
             });
 
