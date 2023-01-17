@@ -60,7 +60,7 @@ export default {
                 function () {
                     this.fileContents = reader.result;
                     this.prepareFormData();
-                    let cloudinaryUploadURL = `https://api.cloudinary.com/v1_1/daul9twnh/image/upload`;
+                    let cloudinaryUploadURL = `https://api.cloudinary.com/v1_1/dncnwieu9/image/upload`;
                     
                     let requestObj = {
                         url: cloudinaryUploadURL,
@@ -191,8 +191,8 @@ export default {
             filesSelected : 0, 
             fileContents: null, 
             formData : null,
-            cloudname: "daul9twnh", 
-            preset: "gaze5wlc", 
+            cloudname: "dncnwieu9", 
+            preset: "ml_default", 
             token : jwt_decode(localStorage.getItem('Token'))
         }
     }

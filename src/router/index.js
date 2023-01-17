@@ -5,6 +5,7 @@ import saveComponent from '../components/saveComponent.vue'
 import componenteVerReserva from '../components/componenteVerReserva.vue'
 import componenteVerAnuncio from '../components/componenteVerAnuncio.vue'
 import componenteListaReservas from '../components/componenteListaReservas.vue'
+import verUsuario from '../components/verUsuario.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/verReserva/:id',
       name: 'VerReservas',
       component: componenteVerReserva
+    },
+    {
+      path: '/verUsuario',
+      name: 'VerUsuario',
+      component: verUsuario
     }
     /*{
       path: '/about',

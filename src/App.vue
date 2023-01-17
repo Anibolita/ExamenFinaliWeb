@@ -1,19 +1,28 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 
-export default{
+export default {
   data() {
     return {
-      token : localStorage.getItem('Token')
+      token: localStorage.getItem('Token')
     };
+  },
+  methods: {
+    //Borramos los datos guardados
+    cerrarSesion() {
+      localStorage.clear();
+      this.token = undefined;
+      location.reload();
+    }
   }
+
 }
 
 </script>
 
 
 <template>
-  
+
   <header>
 
     <div class="logo">
@@ -24,19 +33,21 @@ export default{
 
     <nav>
       <router-link to="/"> Inicio </router-link>
-      <router-link to="/listaViviendas" > Ver Anuncios </router-link>
+      <router-link to="/listaViviendas"> Ver Anuncios </router-link>
       <router-link v-if="token" to="/crearAnuncio"> Crear Anuncios </router-link>
       <router-link v-if="token" to="/listaReservas"> Ver Reservas </router-link>
+      <router-link href="" v-if="token" to="/verUsuario">Información Usuario</router-link>
+      <a href="" v-if="token" v-on:click="cerrarSesion();">Cerrar Sesión</a>
     </nav>
 
-    <div class="logo">
-      <a class="g_id_signin" data-type="standard" data-shape="pill" data-size="large" ></a>
+    <div class="logo" v-if="!token">
+      <a class="g_id_signin" data-type="standard" data-shape="pill" data-size="large"></a>
     </div>
 
   </header>
-  
+
   <div padding-top="20px">
-    <router-view/>
+    <router-view />
   </div>
 
 </template>
