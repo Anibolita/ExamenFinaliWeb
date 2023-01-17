@@ -88,8 +88,10 @@ export default {
     setup() {
         const {coords} = useGeolocation()
         const currPos = computed(() => ({
-            lat: coords.value.latitude,
-            lng: coords.value.longitude
+            //lat: coords.value.latitude,
+            //lng: coords.value.longitude
+            lat: 36.7201600,
+            lng: -4.4203400
         }))
         
         const loader = new Loader({
@@ -123,7 +125,7 @@ export default {
             map.value = new google.maps.Map(mapDiv.value, {
                 //centrado en posicion actual
                 center: center,
-                zoom: 18
+                zoom: 12
             })
             marker = new google.maps.Marker({
                 map: map.value,
@@ -210,7 +212,7 @@ export default {
 
             <!-- Autocomplete location search input -->
             <label for="direccion">Direccion*</label><br>
-            <input class="w-full" id="place-input" type="text" required />
+            <input class="w-full" id="place-input" type="text" required size="100"/>
             <br>
 
             <label for="direccion">Localidad*</label><br>
@@ -234,7 +236,7 @@ export default {
         
         </form>
 
-        <div class="m-6" ref="mapDiv" style="width: 40%; height: 400px; margin-left: 470px;"/>
+        <div class="m-6" ref="mapDiv" style="width: 40%; height: 400px; margin-left: 470px; margin-bottom: 100px; margin-top: 20px;align-self: center;"></div>
 </template>
 
 <style>

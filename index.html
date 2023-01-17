@@ -20,6 +20,7 @@
        
         const responsePayload = jwt_decode(response.credential);
         localStorage.setItem('Token', response.credential); 
+        localStorage.setItem('NombreUsuario', responsePayload.email); 
         
         var log = {
           "email" : responsePayload.email,
