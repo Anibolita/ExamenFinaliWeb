@@ -1,11 +1,16 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-
 export default {
   data() {
     return {
-      token: localStorage.getItem('Token')
+      token: localStorage.getItem('Token'),
+      currentRoute: '/'
     };
+  },
+  watch: {
+    $route(to) {
+      this.currentRoute = to.path
+    }
   },
   methods: {
     //Borramos los datos guardados
@@ -15,9 +20,7 @@ export default {
       location.reload();
     }
   }
-
 }
-
 </script>
 
 
@@ -37,7 +40,7 @@ export default {
       <router-link v-if="token" to="/crearAnuncio"> Crear Anuncios </router-link>
       <router-link v-if="token" to="/listaReservas"> Ver Reservas </router-link>
       <router-link href="" v-if="token" to="/verUsuario">Información Usuario</router-link>
-      <router-link to="/" v-if="token" v-on:click="cerrarSesion();">Cerrar Sesión</router-link>
+      <router-link v-if="currentRoute === '/' && token" to="/" @click="cerrarSesion()">Cerrar sesión</router-link>
     </nav>
 
     <div class="logo" v-if="!token">
