@@ -37,7 +37,7 @@ export default {
       <router-link v-if="token" to="/crearAnuncio"> Crear Anuncios </router-link>
       <router-link v-if="token" to="/listaReservas"> Ver Reservas </router-link>
       <router-link href="" v-if="token" to="/verUsuario">Información Usuario</router-link>
-      <a href="" v-if="token" v-on:click="cerrarSesion();">Cerrar Sesión</a>
+      <router-link to="/" v-if="token" v-on:click="cerrarSesion();">Cerrar Sesión</router-link>
     </nav>
 
     <div class="logo" v-if="!token">
