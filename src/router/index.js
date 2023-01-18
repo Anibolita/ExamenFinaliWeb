@@ -1,11 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import componenteHome from '../components/componenteHome.vue'
-import componenteListaAnuncio from '../components/componenteListaAnuncios.vue'
-import componenteVerReserva from '../components/componenteVerReserva.vue'
-import componenteVerAnuncio from '../components/componenteVerAnuncio.vue'
-import componenteListaReservas from '../components/componenteListaReservas.vue'
 import verUsuario from '../components/verUsuario.vue'
-import componenteExamen1 from '../components/componenteExamen1.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,40 +11,9 @@ const router = createRouter({
       component: componenteHome
     },
     {
-      path: '/listaViviendas',
-      name: 'ListaViviendas',
-      component: componenteListaAnuncio
-    },
-    {
-      path: '/listaViviendas/:localidad',
-      name: 'ListaViviendasLocalidad',
-      component: componenteListaAnuncio
-    },
-    {
-      path: '/verAnuncio/:id',
-      name: 'VerAnuncio',
-      component: componenteVerAnuncio
-    }
-    ,
-    {
-      path: '/listaReservas',
-      name: 'ListaReservas',
-      component: componenteListaReservas
-    },
-    {
-      path: '/verReserva/:id',
-      name: 'VerReservas',
-      component: componenteVerReserva
-    },
-    {
       path: '/verUsuario',
       name: 'VerUsuario',
       component: verUsuario
-    },
-    {
-      path: '/verComponente',
-      name: 'verComponente',
-      component: componenteExamen1
     }
     /*{
       path: '/about',
