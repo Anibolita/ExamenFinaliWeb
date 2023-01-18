@@ -39,6 +39,7 @@ export default {
       <router-link to="/listaViviendas"> Ver Anuncios </router-link>
       <router-link v-if="token" to="/crearAnuncio"> Crear Anuncios </router-link>
       <router-link v-if="token" to="/listaReservas"> Ver Reservas </router-link>
+      <router-link href="" v-if="token" to="/verComponente">Ver componente</router-link>
       <router-link href="" v-if="token" to="/verUsuario">Información Usuario</router-link>
       <router-link v-if="currentRoute === '/' && token" to="/" @click="cerrarSesion()">Cerrar sesión</router-link>
     </nav>
