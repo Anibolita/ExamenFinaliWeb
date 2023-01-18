@@ -18,7 +18,8 @@ export default {
       localStorage.clear();
       this.token = undefined;
       location.reload();
-    }
+    },
+    
   }
 }
 </script>
@@ -30,17 +31,12 @@ export default {
 
     <div class="logo">
       <h2 class="logo-nombre">
-        <router-link to="/"> Examen Final </router-link>
+        <router-link to="/"> ParkingNET </router-link>
       </h2>
     </div>
 
     <nav>
-      <router-link to="/"> Inicio </router-link>
-      <router-link to="/listaViviendas"> Ver Anuncios </router-link>
-      <router-link v-if="token" to="/crearAnuncio"> Crear Anuncios </router-link>
-      <router-link v-if="token" to="/listaReservas"> Ver Reservas </router-link>
-      <router-link href="" v-if="token" to="/verComponente">Ver componente</router-link>
-      <router-link href="" v-if="token" to="/verUsuario">Información Usuario</router-link>
+      <router-link href="" v-if="token" to="/verUsuario">Ver Perfil</router-link>
       <router-link v-if="currentRoute === '/' && token" to="/" @click="cerrarSesion()">Cerrar sesión</router-link>
     </nav>
 

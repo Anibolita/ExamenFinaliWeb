@@ -5,17 +5,19 @@ export default {
     return {
       tokenID: localStorage.getItem('Token'),
       token: jwt_decode(localStorage.getItem('Token')),
-      logs: null
+      logs: null,
+      imagen: null
     };
   },
-  created() {
-    axios.get("https://o24sdy.deta.dev/appLog/logs", { params: { nombre: this.token.email } } ).then(response => this.logs = response.data);
+   created() {
+  //   axios.get("https://o24sdy.deta.dev/appLog/logs", { params: { nombre: this.token.email } } ).then(response => this.logs = response.data);
+    this.imagen = this.token.picture;
   },
-  beforeUpdate(){
-    axios.get("https://o24sdy.deta.dev/appLog/logs", { params: { nombre: this.token.email } } ).then(response => this.logs = response.data);
-  },
+  // beforeUpdate(){
+  //   axios.get("https://o24sdy.deta.dev/appLog/logs", { params: { nombre: this.token.email } } ).then(response => this.logs = response.data);
+  // },
   methods: {
-    convertirTiempo(tiempo){
+    convertirTiempo(tiempo) {
 
       const milliseconds = tiempo * 1000 // 1575909015000
 
@@ -31,7 +33,47 @@ export default {
 </script>
 
 <template>
- 
+
+  <h1> Informacion sobre el usuario</h1>
+  <table class="tabla-Grande">
+    <tr>
+
+      <td class="celda-Anuncio"><img :src= 'token.picture' width="300" /></td>
+
+      <td class="celda-Anuncio">
+
+        <table class="tabla-Info">
+          <tr>
+            <td class="bold-text">Email:</td>
+            <td>{{ token.email }}</td>
+          </tr>
+
+          <tr>
+            <td class="bold-text">Nombre:</td>
+            <td>{{ token.given_name }} {{ token.family_name }}</td>
+          </tr>
+
+          <tr>
+            <td class="bold-text">Conexión:</td>
+            <td>{{ convertirTiempo(token.iat) }}</td>
+          </tr>
+
+          <tr>
+            <td class="bold-text">Caducidad:</td>
+            <td>{{ convertirTiempo(token.exp) }}</td>
+          </tr>
+
+          <tr>
+            <td class="bold-text">Token:</td>
+            <td class="token-cell">{{ tokenID }}</td>
+          </tr>
+        </table>
+      </td>
+
+    </tr>
+  </table>
+
+  <!--  
   <h1> Informacion sobre el usuario (logs)</h1>
 
   <table class="tabla-logs" v-if="logs">
@@ -59,7 +101,7 @@ export default {
           </tr>
 
     </tr>
-  </table>
+  </table> -->
 </template>
 
 <style>
